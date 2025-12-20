@@ -15,6 +15,8 @@ public class EnrollmentView {
 
     private Long courseId;
     private String courseName;
+    private String teacher;
+    private Integer credit;
 
     private LocalDateTime createTime;
 }

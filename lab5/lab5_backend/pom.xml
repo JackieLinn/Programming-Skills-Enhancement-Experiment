@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ynu.jackielinn</groupId>
-    <artifactId>lab5_backend</artifactId>
+    <artifactId>lab5</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>lab5_backend</name>
     <description>lab5_backend</description>

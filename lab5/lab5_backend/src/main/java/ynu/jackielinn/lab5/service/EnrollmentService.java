@@ -53,6 +53,8 @@ public class EnrollmentService {
                         .studentUsername(e.getStudent().getUsername())
                         .courseId(e.getCourse().getId())
                         .courseName(e.getCourse().getName())
+                        .teacher(e.getCourse().getTeacher())
+                        .credit(e.getCourse().getCredit())
                         .createTime(e.getCreateTime())
                         .build()
         ).toList();
