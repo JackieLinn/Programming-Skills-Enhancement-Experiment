@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    JPA 持久化单元配置文件
+    定义数据源、实体类和 Hibernate 属性
+-->
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
+    <!-- 持久化单元：RESOURCE_LOCAL 表示本地事务管理 -->
     <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
+        <!-- JPA 实现提供者：Hibernate -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- 注册实体类 -->
         <class>ynu.jackielinn.lab3.entity.Student</class>
         <class>ynu.jackielinn.lab3.entity.Course</class>
         <class>ynu.jackielinn.lab3.entity.Enrollment</class>
         <properties>
+            <!-- 数据库连接配置 -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:mysql://127.0.0.1:3306/lab3?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf8"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="20040304"/>
 
+            <!-- Hibernate 配置 -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.highlight_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>       <!-- 打印 SQL -->
+            <property name="hibernate.format_sql" value="true"/>     <!-- 格式化 SQL -->
+            <property name="hibernate.highlight_sql" value="true"/>  <!-- 语法高亮 -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- 自动建表/更新表结构 -->
         </properties>
     </persistence-unit>
 </persistence>
