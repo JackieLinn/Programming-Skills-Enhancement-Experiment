@@ -12,6 +12,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 商品业务层
+ */
 @Service
 @Transactional
 public class ProductService {
@@ -23,6 +26,7 @@ public class ProductService {
         return productDao.save(p);
     }
 
+    /** 扣减库存（返回影响行数，0 表示库存不足） */
     public int decreaseStock(Long id, int delta) {
         return productDao.decreaseStock(id, delta);
     }
@@ -31,6 +35,7 @@ public class ProductService {
         return productDao.findById(id);
     }
 
+    /** 价格区间查询 */
     public List<Product> range(BigDecimal min, BigDecimal max) {
         return productDao.findByPriceBetween(min, max);
     }

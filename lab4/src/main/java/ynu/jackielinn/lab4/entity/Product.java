@@ -6,6 +6,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+/**
+ * 商品实体
+ */
 @Data
 @Entity
 @Table(name = "t_product")
@@ -23,7 +26,7 @@ public class Product {
 
     @Column(nullable = false)
     @Schema(description = "价格")
-    private BigDecimal price;
+    private BigDecimal price;  // 使用 BigDecimal 精确存储金额
 
     @Column(nullable = false)
     @Schema(description = "库存")

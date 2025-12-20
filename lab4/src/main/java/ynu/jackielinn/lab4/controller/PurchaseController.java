@@ -13,6 +13,9 @@ import jakarta.annotation.Resource;
 
 import java.util.List;
 
+/**
+ * 订单 REST API 控制器
+ */
 @RestController
 @RequestMapping("/api/purchases")
 @Tag(name = "订单管理", description = "订单CRUD与自定义查询")
@@ -27,13 +30,13 @@ public class PurchaseController {
         return purchaseService.create(req.getUserId(), req.getProductIds());
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/user/{userId}")  // GET /api/purchases/user/{userId}
     @Operation(summary = "按用户查询订单", description = "findByUserId示例")
     public List<Purchase> listByUser(@PathVariable Long userId) {
         return purchaseService.byUser(userId);
     }
 
-    @PutMapping("/{id}/status")
+    @PutMapping("/{id}/status")  // PUT /api/purchases/{id}/status?status=PAID
     @Operation(summary = "更新订单状态", description = "@Modifying更新状态")
     public int updateStatus(@PathVariable Long id, @RequestParam Purchase.Status status) {
         return purchaseService.updateStatus(id, status);

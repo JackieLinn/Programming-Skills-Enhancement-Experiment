@@ -13,6 +13,9 @@ import jakarta.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * 商品 REST API 控制器
+ */
 @RestController
 @RequestMapping("/api/products")
 @Tag(name = "商品管理", description = "商品CRUD与库存自定义操作")
@@ -33,13 +36,13 @@ public class ProductController {
         return productService.find(id).orElse(null);
     }
 
-    @GetMapping("/range")
+    @GetMapping("/range")  // GET /api/products/range?min=10&max=100
     @Operation(summary = "价格区间查询", description = "findByPriceBetween示例")
     public List<Product> range(@RequestParam BigDecimal min, @RequestParam BigDecimal max) {
         return productService.range(min, max);
     }
 
-    @PutMapping("/{id}/stock/decrease")
+    @PutMapping("/{id}/stock/decrease")  // PUT /api/products/{id}/stock/decrease?delta=5
     @Operation(summary = "减少库存", description = "通过@Modifying原子扣库存")
     public int decrease(@PathVariable Long id, @RequestParam int delta) {
         return productService.decreaseStock(id, delta);

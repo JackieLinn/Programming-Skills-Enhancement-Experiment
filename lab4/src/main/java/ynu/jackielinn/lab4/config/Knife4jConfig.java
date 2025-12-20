@@ -5,6 +5,10 @@ import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Knife4j (Swagger) API 文档配置
+ * 访问地址：http://localhost:8080/doc.html
+ */
 @Configuration
 public class Knife4jConfig {
 

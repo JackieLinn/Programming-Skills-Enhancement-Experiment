@@ -17,6 +17,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 订单业务层
+ */
 @Service
 @Transactional
 public class PurchaseService {
@@ -30,8 +33,13 @@ public class PurchaseService {
     @Resource
     private ProductDao productDao;
 
+    /**
+     * 创建订单
+     * @param userId 用户ID
+     * @param productIds 商品ID集合
+     */
     public Purchase create(Long userId, Set<Long> productIds) {
-        User user = userDao.findById(userId).orElseThrow();
+        User user = userDao.findById(userId).orElseThrow();  // 用户不存在则抛异常
         Set<Product> products = new HashSet<>(productDao.findAllById(productIds));
 
         Purchase pu = new Purchase();
