@@ -1,5 +1,9 @@
 import axios from 'axios'
 
+/**
+ * Axios 实例配置
+ * baseURL: 后端 API 地址
+ */
 const api = axios.create({
   baseURL: 'http://localhost:8080/api',
   timeout: 10000,
